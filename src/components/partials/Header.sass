@@ -1,6 +1,35 @@
 @import ../../styles/_variables.sass
   
 .header
-  background-color: $primary-color
-  text-transform: uppercase
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 3rem 0
+  padding-bottom: 2.5rem 
+  border-bottom: 1px solid black
+  align-content: center
+  &__logo
+    color: $primary-color
+    font-size: 2rem
+    padding-bottom: 1.5rem
+
+
+.navigation
+  font-size: 1.6rem
+  &__list
+    list-style: none
+    display: flex
+    align-content: center
+  &__list-item
+    margin-left: 3rem
+    padding-bottom: 1rem
+    &:hover
+      border-bottom: 1px dashed black
+  &__link
+    display: inline-block
+    color: $primary-color
+    transition: all .5s
+
+
+
   

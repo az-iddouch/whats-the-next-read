@@ -5,8 +5,10 @@ import './App.sass';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
+      <div className="inner">
+        <div className="App">
+          <Header />
+        </div>
       </div>
     );
   }
