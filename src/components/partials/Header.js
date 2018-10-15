@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.sass';
 
 export default class Header extends Component {
   render() {
     return (
       <div className="header">
-        <a href="#" className="header__logo">
+        <Link to="/" className="header__logo">
           WhatsTheNextRead .
-        </a>
+        </Link>
         <nav className="navigation">
           <ul className="navigation__list">
             <li className="navigation__list-item">
