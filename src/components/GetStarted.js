@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './GetStarted.sass';
 
 export default function GetStarted() {
@@ -6,25 +7,25 @@ export default function GetStarted() {
     <div className="get-started">
       <ul className="get-started__list">
         <li className="get-started__list-item">
-          <a href="#" className="get-started__list-link">
+          <Link to="/new-to-books" className="get-started__list-link">
             <i className="fas fa-angle-right get-started__list-icon" /> You're
             new to reading books.
             <span className="get-started__list-arrow">&rarr;</span>
-          </a>
+          </Link>
         </li>
         <li className="get-started__list-item">
-          <a href="#" className="get-started__list-link ">
+          <Link to="#" className="get-started__list-link ">
             <i className="fas fa-angle-right get-started__list-icon" /> You've
             read some books already.
             <span className="get-started__list-arrow">&rarr;</span>
-          </a>
+          </Link>
         </li>
         <li className="get-started__list-item">
-          <a href="#" className="get-started__list-link">
+          <Link to="#" className="get-started__list-link">
             <i className="fas fa-angle-right get-started__list-icon" /> You want
             a total random book suggestion.
             <span className="get-started__list-arrow">&rarr;</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
