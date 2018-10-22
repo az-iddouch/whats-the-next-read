@@ -1,4 +1,49 @@
 @import ../styles/_variables.sass
 
 .new-to-books
-  font-size: 2.5rem
+  margin-top: 4.5rem
+  margin-bottom: 4.5rem
+  &__title
+    font-size: 4.5rem
+    text-transform: uppercase
+  &__todo
+    margin-top: .5rem
+    font-size: 3.5rem
+  &__checkbox-label
+    font-size: 1.8rem
+    font-family: "source code pro"
+    cursor: pointer
+    display: block
+    margin-bottom: .5rem
+    margin-left: 1.8rem
+  &__checkbox
+    display: none
+    &-text:before
+      content: '\f0c8'
+      font-family: 'Font Awesome 5 Free'
+      font-weight: 400;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      width: 1em
+      margin-right: 1.5rem
+
+    &:checked + &-text:before
+      content: '\f00c'
+      font-weight: 700;
+  &__form
+    margin-top: 2.3rem
+  &__btn
+    &:link, &:visited
+      display: inline-block
+      color: $primary-color
+      font-size: 2rem
+      padding: 1rem 6rem
+      border: 1.5px solid $primary-color 
+      margin-top: 2rem
+      transition: all .3s
+    &:hover, &:active
+      background-color: $primary-color
+      color: $color-white

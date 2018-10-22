@@ -69,14 +69,15 @@ export default class newToBooks extends Component {
   option = (genre, key) => {
     return (
       <div key={genre.genre}>
-        <label>
+        <label className="new-to-books__checkbox-label">
           <input
             type="checkbox"
+            className="new-to-books__checkbox"
             value={genre.genre}
             onChange={e => this.checkBoxHandler(e, key)}
             checked={this.state.genres[key].checked}
           />
-          {genre.body}
+          <span className="new-to-books__checkbox-text">{genre.body}</span>
         </label>
         <br />
       </div>
@@ -87,17 +88,22 @@ export default class newToBooks extends Component {
     const genres = { ...this.state.genres };
     genres[key].checked = e.target.checked;
     this.setState({ genres });
-    // this.state.genres[e.target.value].checked = e.target.value.checked;
   };
 
   render() {
     return (
       <div className="new-to-books">
-        <h2 className="new-to-books__title">New to books .</h2>
-        <form>
+        <h2 className="new-to-books__title">New to books.</h2>
+        <p className="new-to-books__todo">
+          check all the options that suits your personality ...
+        </p>
+        <form className="new-to-books__form">
           {Object.keys(this.state.genres).map(key =>
             this.option(this.state.genres[key], key)
           )}
+          <a href="#" type="submit" className="new-to-books__btn">
+            Let's go &rarr;
+          </a>
         </form>
       </div>
     );
