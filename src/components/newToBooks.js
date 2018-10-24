@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './newToBooks.sass';
+import './NewToBooks.sass';
 
-export default class newToBooks extends Component {
+export default class NewToBooks extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,8 +13,7 @@ export default class newToBooks extends Component {
           genre: 'classic'
         },
         fantasy: {
-          body:
-            "You're a daydreamer .. and you value friendship over anything.",
+          body: "You're a daydreamer .. and you value friendship over anything.",
           checked: false,
           genre: 'fantasy'
         },
@@ -90,17 +89,25 @@ export default class newToBooks extends Component {
     this.setState({ genres });
   };
 
+  formSubmitHandler = e => {
+    e.preventDefault();
+    const genres = Object.keys(this.state.genres)
+      .filter(key => this.state.genres[key].checked)
+      .reduce((arr, key) => {
+        arr.push(this.state.genres[key].genre);
+        return arr;
+      }, []);
+    const randNum = Math.floor(Math.random() * Math.floor(genres.length));
+    this.props.history.push(`/generated-book/:${genres[randNum]}`);
+  };
+
   render() {
     return (
       <div className="new-to-books">
         <h2 className="new-to-books__title">New to books.</h2>
-        <p className="new-to-books__todo">
-          check all the options that suits your personality ...
-        </p>
-        <form className="new-to-books__form">
-          {Object.keys(this.state.genres).map(key =>
-            this.option(this.state.genres[key], key)
-          )}
+        <p className="new-to-books__todo">check all the options that suits your personality ...</p>
+        <form className="new-to-books__form" onSubmit={this.formSubmitHandler}>
+          {Object.keys(this.state.genres).map(key => this.option(this.state.genres[key], key))}
           <button href="#" type="submit" className="new-to-books__btn">
             Let's go &rarr;
           </button>
