@@ -101,9 +101,9 @@ export default class newToBooks extends Component {
           {Object.keys(this.state.genres).map(key =>
             this.option(this.state.genres[key], key)
           )}
-          <a href="#" type="submit" className="new-to-books__btn">
+          <button href="#" type="submit" className="new-to-books__btn">
             Let's go &rarr;
-          </a>
+          </button>
         </form>
       </div>
     );
