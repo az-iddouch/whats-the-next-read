@@ -20,7 +20,7 @@ export default class NewToBooks extends Component {
         HistoricalFiction: {
           body: 'You consider yourself a perfectioniste , You hate surprises .',
           checked: false,
-          genre: 'Historical Fiction'
+          genre: 'fiction history'
         },
         horror: {
           body:
@@ -31,7 +31,7 @@ export default class NewToBooks extends Component {
         literaryFiction: {
           body: "You're a deep thinker and you love to know more about people ",
           checked: false,
-          genre: 'Literary Fiction'
+          genre: 'Literature'
         },
         mystery: {
           body: 'You are always searching for the bigger meaning in things ',
@@ -42,7 +42,7 @@ export default class NewToBooks extends Component {
           body:
             'You are often looking for new ways to improve yourself and the lives around you . ',
           checked: false,
-          genre: 'Non-Fiction'
+          genre: 'self help'
         },
         romance: {
           body:
@@ -53,15 +53,16 @@ export default class NewToBooks extends Component {
         scienceFiction: {
           body: "You're a big fun of either Star trek or Star wars . ",
           checked: false,
-          genre: 'science-fiction'
+          genre: 'science fiction'
         },
         youngAdult: {
           body:
             "You're in tune with your emotions, and are almost always the one your friends go to when they need solid advice",
           checked: false,
-          genre: 'young adult'
+          genre: 'fiction'
         }
-      }
+      },
+      error: ''
     };
   }
 
@@ -98,7 +99,14 @@ export default class NewToBooks extends Component {
         return arr;
       }, []);
     const randNum = Math.floor(Math.random() * Math.floor(genres.length));
-    this.props.history.push(`/generated-book/:${genres[randNum]}`);
+    if (genres.length !== 0) {
+      this.props.history.push(`/generated-book/:${genres[randNum]}`);
+    }
+    this.setState({ error: 'you must select at least one option !' });
+  };
+
+  clearError = () => {
+    this.setState({ error: '' });
   };
 
   render() {
@@ -108,6 +116,14 @@ export default class NewToBooks extends Component {
         <p className="new-to-books__todo">check all the options that suits your personality ...</p>
         <form className="new-to-books__form" onSubmit={this.formSubmitHandler}>
           {Object.keys(this.state.genres).map(key => this.option(this.state.genres[key], key))}
+          {this.state.error && (
+            <div className="error">
+              <p className="error__text">{this.state.error}</p>
+              <div className="error__close" onClick={this.clearError}>
+                &times;
+              </div>
+            </div>
+          )}
           <button href="#" type="submit" className="new-to-books__btn">
             Let's go &rarr;
           </button>

@@ -1,0 +1,83 @@
+@import ../styles/_utilities
+@import ../styles/_variables
+
+.show-book
+  &__header
+    margin-top: 5rem
+    font-size: 3rem
+  &__container
+    display: flex
+    width: 90%
+    margin: 4rem auto
+  &__thumbnail
+    flex: 40% 0 0;
+  &__details
+    flex: 1;
+    font-family: "source code pro"
+  &__image
+    width: 80%
+    height: auto
+    display: block
+    margin: 0 auto
+    margin-top: 1.5rem
+  &__book-name
+    font-size: 4.5rem
+  &__book-author
+    font-size: 2.5rem
+  &__book-authors
+    display: inline-block
+  &__book-date
+    font-size: 1.5rem
+    font-weight: 700
+    margin-left: 4rem
+    &-icon
+      display: inline-block
+      margin-right: 0.7rem
+  &__book-pg-count
+    font-weight: 700
+  &__book-pg-count-value
+    font-weight: 400
+  &__book-rating
+    font-weight: 700
+    margin-left: 4rem
+  &__book-rating-value
+    font-weight: 400
+  &__row
+    font-size: 1.6rem
+    display: flex
+    margin-top: 2rem
+  &__book-description
+    margin-top: 2rem
+    font-size: 1.7rem
+    font-weight: 700
+    &-text
+      font-size: 1.8rem
+      font-weight: 400
+      font-family: 'Belleza'
+      line-height: 1.3
+      text-align: justify
+      text-justify: inter-word
+  &__btn 
+    font-family: "source code pro"
+    font-size: 1.6rem
+    padding: 1rem 5rem
+    display: inline-block
+    margin-top: 2rem
+    border: 1px solid $primary-color
+    &--back
+      color: $color-white
+      background-color: $primary-color
+    &--preview
+      color: $primary-color
+      background-color: transparent
+      margin-left: 2rem
+      transition: all .4s
+      &:hover
+        background-color: $primary-color
+        color: $color-white 
+      
+
+  
+
+ 
+  
