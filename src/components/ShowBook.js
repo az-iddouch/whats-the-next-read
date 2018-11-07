@@ -24,6 +24,10 @@ export default class ShowBook extends Component {
     this.setState({ book: books[randNum] });
   }
 
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
   render() {
     const {
       book: { volumeInfo: book }
@@ -76,9 +80,9 @@ export default class ShowBook extends Component {
               Description:{' '}
               <span className="show-book__book-description-text">{book.description}</span>
             </p>
-            <Link to="/new-to-books" className="show-book__btn show-book__btn--back">
+            <a onClick={this.goBack} className="show-book__btn show-book__btn--back">
               Back
-            </Link>
+            </a>
             <a
               href={book.previewLink}
               target="_blank"
