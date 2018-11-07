@@ -20,7 +20,7 @@ export default function GetStarted() {
           </Link>
         </li>
         <li className="get-started__list-item">
-          <Link to="#" className="get-started__list-link">
+          <Link to="/generated-book/random" className="get-started__list-link">
             <i className="fas fa-angle-right get-started__list-icon" /> You want a total random book
             suggestion.
             <span className="get-started__list-arrow">&rarr;</span>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.sass';
 
 export default class Header extends Component {
@@ -12,24 +12,24 @@ export default class Header extends Component {
         <nav className="navigation">
           <ul className="navigation__list">
             <li className="navigation__list-item">
-              <a href="#" className="navigation__link">
+              <NavLink to="/already-a-book-reader" className="navigation__link">
                 Already a reader
-              </a>
+              </NavLink>
             </li>
             <li className="navigation__list-item">
-              <a href="#" className="navigation__link">
+              <NavLink to="/new-to-books" className="navigation__link">
                 New to reading
-              </a>
+              </NavLink>
             </li>
             <li className="navigation__list-item">
-              <a href="#" className="navigation__link">
+              <NavLink to="/generated-book/random" className="navigation__link">
                 I feel lucky
-              </a>
+              </NavLink>
             </li>
             <li className="navigation__list-item">
-              <a href="#" className="navigation__link">
+              <NavLink to="/philosophy" className="navigation__link">
                 Philosophy
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>

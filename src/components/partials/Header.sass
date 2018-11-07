@@ -15,20 +15,23 @@
 
 
 .navigation
-  font-size: 1.6rem
+  font-size: 1.7rem
   &__list
     list-style: none
     display: flex
     align-content: center
-  &__list-item
-    margin-left: 3rem
+  &__link:link, &__link:visited 
+    margin-left: 2.5rem
     padding-bottom: 1rem
-    &:hover
-      border-bottom: 1px dashed black
-  &__link
     display: inline-block
     color: $primary-color
     transition: all .5s
+    &:hover,&.active
+      border-bottom: 1px dashed black
+
+
+
+
 
 
 

@@ -7,12 +7,28 @@ export default class ShowBook extends Component {
     super(props);
 
     this.state = {
-      book: {}
+      book: {},
+      genres: [
+        'classic',
+        'fantasy',
+        'fiction history',
+        'horror',
+        'Literature',
+        'mystery',
+        'self help',
+        'romance',
+        'science fiction',
+        'fiction'
+      ]
     };
   }
   componentDidMount() {
     const genre = this.props.match.params.genre;
-    this.fetchBook(genre);
+    if (genre === 'random') {
+      const randNum = Math.floor(Math.random() * Math.floor(this.state.genres.length));
+      var randgenre = this.state.genres[randNum];
+    }
+    this.fetchBook(randgenre);
   }
 
   async fetchBook(genre) {
