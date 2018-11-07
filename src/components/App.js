@@ -5,6 +5,7 @@ import Home from './Home';
 import GetStarted from './GetStarted';
 import NewToBooks from './NewToBooks';
 import ShowBook from './ShowBook';
+import Philosophy from './Philosophy';
 import BookReader from './BookReader';
 import './App.sass';
 
@@ -18,6 +19,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/getstarted" component={GetStarted} />
+              <Route path="/philosophy" component={Philosophy} />
               <Route path="/new-to-books" component={NewToBooks} />
               <Route path="/already-a-book-reader" component={BookReader} />
               <Route path="/generated-book/:genre" component={ShowBook} />
