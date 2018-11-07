@@ -24,9 +24,10 @@ export default class ShowBook extends Component {
   }
   componentDidMount() {
     const genre = this.props.match.params.genre;
+    var randgenre = genre;
     if (genre === 'random') {
       const randNum = Math.floor(Math.random() * Math.floor(this.state.genres.length));
-      var randgenre = this.state.genres[randNum];
+      randgenre = this.state.genres[randNum];
     }
     this.fetchBook(randgenre);
   }
@@ -36,8 +37,10 @@ export default class ShowBook extends Component {
       `https://www.googleapis.com/books/v1/volumes?q=subject:${genre}&maxResults=30&langRestrict=en`
     );
     const { items: books } = await res.json();
-    const randNum = Math.floor(Math.random() * Math.floor(books.length));
-    this.setState({ book: books[randNum] });
+    if (books) {
+      const randNum = Math.floor(Math.random() * Math.floor(books.length));
+      this.setState({ book: books[randNum] });
+    }
   }
 
   goBack = () => {
