@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './ShowBook.sass';
 
 export default class ShowBook extends Component {
@@ -30,6 +30,18 @@ export default class ShowBook extends Component {
       randgenre = this.state.genres[randNum];
     }
     this.fetchBook(randgenre);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params !== prevProps.match.params) {
+      const genre = this.props.match.params.genre;
+      var randgenre = genre;
+      if (genre === 'random') {
+        const randNum = Math.floor(Math.random() * Math.floor(this.state.genres.length));
+        randgenre = this.state.genres[randNum];
+      }
+      this.fetchBook(randgenre);
+    }
   }
 
   async fetchBook(genre) {
@@ -70,7 +82,7 @@ export default class ShowBook extends Component {
             <h2 className="show-book__book-name">{book.title}</h2>
             <p className="show-book__book-authors">
               {book.authors.map(author => (
-                <span className="show-book__book-author" key={Date.now()}>
+                <span className="show-book__book-author" key={author}>
                   {author}
                   {book.authors.length > 1 ? ', ' : ''}
                 </span>
