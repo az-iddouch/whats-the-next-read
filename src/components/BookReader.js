@@ -85,7 +85,7 @@ export default class BookReader extends Component {
       }, []);
     const randNum = Math.floor(Math.random() * Math.floor(genres.length));
     if (genres.length !== 0) {
-      this.props.history.push(`/generated-book/:${genres[randNum]}`);
+      this.props.history.push(`/generated-book/${genres[randNum]}`);
     }
     this.setState({ error: 'you must select at least one option !' });
   };
